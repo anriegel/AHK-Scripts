@@ -5,7 +5,7 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; Exclude bug, keyword is //exclude
 ; This will create a pop up window which will prompt for user input. 
-:*://exclude::
+:*://exclude::                           ; <--- Modify this line if you want to change the shortcut
 Gui, New
 Gui, Add, Text,,As per...
 Gui, Add, Edit, vReason
@@ -22,7 +22,7 @@ return
 
 ; Include bug, keyword is //include
 ; This will create a pop up window which will prompt for user input. 
-:*://include::
+:*://include::                           ; <--- Modify this line if you want to change the shortcut
 Gui, New
 Gui, Add, DropDownList, vFound1, internally|externally
 Gui, Add, Text,,Number of SRs
@@ -37,7 +37,7 @@ return
 
 ; Include info only bug, keyword is //info
 ; This will create a pop up window which will prompt for user input. 
-:*://info::
+:*://info::                           ; <--- Modify this line if you want to change the shortcut
 Gui, New
 Gui, Add, DropDownList, vFound2, internally|externally
 Gui, Add, Text,,Number of SRs
@@ -50,7 +50,7 @@ Gui, Submit
 Send, Including this issue for informational purposes only. This issue is being included because it may have an operational impact. `n`nDescription `n`nTrigger `n`nWorkaround `n`nThe issue is %Found2% found with %SR2% service requests.
 return
 
-; Not customer visible bug, exclude
+; Exclude not customer visible bugs, keyword is //notvis
 ; This will not prompt for user input, strictly for excluding with the reason as not customer visible.
-:*://notvis::
+:*://notvis::                           ; <--- Modify this line if you want to change the shortcut
 Send, Exclude: `nAs per customer visibility. This issue is not customer visible.
