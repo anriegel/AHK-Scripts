@@ -4,6 +4,7 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ; Exclude bug, keyword is //exclude
+; This will create a pop up window which will prompt for user input. 
 :*://exclude::
 Gui, New
 Gui, Add, Text,,As per...
@@ -20,6 +21,7 @@ Send, Exclude: `nAs per %Reason% `n`n%Explain%
 return
 
 ; Include bug, keyword is //include
+; This will create a pop up window which will prompt for user input. 
 :*://include::
 Gui, New
 Gui, Add, DropDownList, vFound1, internally|externally
@@ -34,6 +36,7 @@ Send, This issue is being included because it may have an operational impact. `n
 return
 
 ; Include info only bug, keyword is //info
+; This will create a pop up window which will prompt for user input. 
 :*://info::
 Gui, New
 Gui, Add, DropDownList, vFound2, internally|externally
@@ -48,5 +51,6 @@ Send, Including this issue for informational purposes only. This issue is being 
 return
 
 ; Not customer visible bug, exclude
+; This will not prompt for user input, strictly for excluding with the reason as not customer visible.
 :*://notvis::
 Send, Exclude: `nAs per customer visibility. This issue is not customer visible.
